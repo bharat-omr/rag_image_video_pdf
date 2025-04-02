@@ -1,0 +1,12 @@
+os
+whisper
+streamlit
+python-dotenv
+PyPDF2
+langchain
+langchain_google_genai
+langchain_community
+faiss-cpu
+google-generativeai
+Pillow
+moviepy
