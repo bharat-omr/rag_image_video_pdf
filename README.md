@@ -24,11 +24,19 @@ Conversational Retrieval: Ask questions based on stored documents.
 📂 Project Structure
 
 │── /app
-│   ├── __init__.py          # Initializes Flask app
+
+│   ├── __init__.py 
+                              # Initializes Flask app
 │   ├── config.py            # API Key Configuration
+
 │   ├── routes.py            # Defines Flask API routes
+
 │   ├── utils.py             # Helper functions (image, audio, video processing)
+
 │   ├── vectorstore.py       # FAISS vector database management
+
 │── main.py                  # Entry point
+
 │── requirements.txt         # Dependencies
+
 │── README.md                # Documentation
