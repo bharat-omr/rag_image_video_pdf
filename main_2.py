@@ -10,8 +10,8 @@ from modules.chat import get_conversation_chain
 import PIL.Image
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 load_dotenv()
-st.set_page_config(page_title="Chat with PDFs, Videos & Images", page_icon="📄🎥🖼️")
-st.header("Chat with PDFs, Videos & Images 📄🎥🖼️")
+st.set_page_config(page_title="Agentic AI Integration for LMS", page_icon="📄🎥🖼️")
+st.header("Agentic AI Integration for LMS 📄🎥🖼️")
 
 def handle_userinput(question):
     response = st.session_state.conversation({"question": question})

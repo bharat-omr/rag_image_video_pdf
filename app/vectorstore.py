@@ -1,7 +1,13 @@
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from dotenv import load_dotenv
+import google.generativeai as genai
+import os
+
 load_dotenv()
+API_KEY = os.getenv("GOOGLE_API_KEY")
+genai.configure(api_key=API_KEY)
+print("API Key:", API_KEY)
 vectorstore = None
 embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
 
