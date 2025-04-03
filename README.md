@@ -162,7 +162,7 @@ streamlit run main.py
 
 │── 📄 README.md               # Documentation
 
-#📌 How It Works
+# 📌 How It Works
 
 
 Upload PDFs, videos, or images via the sidebar.
@@ -173,10 +173,10 @@ The app processes the content and generates responses.
 
 Ask questions in the chat about the uploaded documents.
 
-#Install Dependencies
+# Install Dependencies
 
 pip install -r requirements.txt
 
-#Set Up Environment Variables
+# Set Up Environment Variables
 
 GOOGLE_API_KEY=your_google_api_key_here
