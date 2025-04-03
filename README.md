@@ -48,26 +48,21 @@ python main.py
 
 📌 API Endpoints
 
-🔹 Upload PDF
+# Upload PDF
 
 Endpoint: POST /upload_pdf
 
 Description: Extracts text from PDFs and stores it in FAISS.
 
-Request:
+Request:  curl -X POST -F "files=@sample.pdf" http://localhost:8000/upload_pdf
 
-curl -X POST -F "files=@sample.pdf" http://localhost:8000/upload_pdf
-
-Upload Image
+# Upload Image
 
 Endpoint: POST /upload_image
 
 Description: Generates an AI-powered description of the uploaded image.
 
-Request:
-
-curl -X POST -F "file=@image.jpg" http://localhost:8000/upload_image
-
+Request:  curl -X POST -F "file=@image.jpg" http://localhost:8000/upload_image
 
 
 {
@@ -75,15 +70,13 @@ curl -X POST -F "file=@image.jpg" http://localhost:8000/upload_image
   "message": "Image description stored in vector database."
 }
 
-🔹 Upload Video
+# Upload Video
 
 Endpoint: POST /upload_video
 
 Description: Extracts audio transcription or video description.
 
-Request:
-
-curl -X POST -F "file=@video.mp4" -F "option=Transcription" http://localhost:8000/upload_video
+Request:  curl -X POST -F "file=@video.mp4" -F "option=Transcription" http://localhost:8000/upload_video
 
 
 
@@ -102,7 +95,7 @@ Request:
 
 curl -X POST -H "Content-Type: application/json" -d '{"question": "What is the content of the PDF?"}' http://localhost:8000/ask_question
 
- Technologies Used
+ # Technologies Used
 
 Flask (Backend API)
 
