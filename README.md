@@ -1,6 +1,6 @@
 # Agentic AI Integration for LMS
 
-# part -1 
+# Part -1 (FLASK API) 
 
 "This Flask API allows you to store your course-specific data in a vector database and query it using AI. You can upload PDFs, images, and videos, extract meaningful information, and ask questions based on the stored data. This approach enables an AI-driven agent that provides contextual responses using a conversational retrieval system."
 
@@ -115,3 +115,68 @@ MoviePy (Audio Extraction from Video)
 
 ![Screenshot 2025-04-02 162125](https://github.com/user-attachments/assets/cf786026-9229-4614-9c66-cde80485410c)
 
+
+# Part -2 ( streamlit interface) 
+
+# headline - Agentic AI Integration for LMSs 📄🎥🖼️
+
+This is a **Streamlit-based AI-powered app** that allows users to interact with PDFs, videos, and images using **Google Gemini AI, Whisper, FAISS, and LangChain**.
+
+## 🚀 Features
+- 📄 **PDF Processing**: Extracts text from PDFs and enables conversational interaction.
+- 🎥 **Video Processing**: Supports **speech-to-text transcription** and **video description**.
+- 🖼️ **Image Analysis**: Generates descriptions for uploaded images.
+- 🧠 **Conversational AI**: Uses **Gemini AI** for intelligent responses.
+- 🔍 **Semantic Search**: Uses **FAISS vector store** to retrieve relevant information.
+
+---
+# Run the App
+
+streamlit run main.py
+
+#📂 Project Structure
+
+
+
+│── 📄 main_2.py                 # Streamlit app entry point
+
+│── 📄 config.py               # Configuration settings
+
+│── 📂 modules/
+
+│   │── 📄 pdf_processing.py    # PDF text extraction
+
+│   │── 📄 video_processing.py  # Video transcription & description
+
+│   │── 📄 image_processing.py  # Image description
+
+│   │── 📄 ai_services.py       # AI models (Gemini, Whisper)
+
+│   │── 📄 vectorstore.py       # FAISS vector store
+
+│   │── 📄 chat.py              # Conversational AI logic
+
+│── 📄 requirements.txt        # Dependencies
+
+│── 📄 .env                    # API keys
+
+│── 📄 README.md               # Documentation
+
+#📌 How It Works
+
+
+Upload PDFs, videos, or images via the sidebar.
+
+Choose transcription or description for videos.
+
+The app processes the content and generates responses.
+
+Ask questions in the chat about the uploaded documents.
+
+#Install Dependencies
+
+pip install -r requirements.txt
+
+#Set Up Environment Variables
+
+GOOGLE_API_KEY=your_google_api_key_here
