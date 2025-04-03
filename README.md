@@ -1,6 +1,6 @@
-## Agentic AI Integration for LMS
+# Agentic AI Integration for LMS
 
-part -1 
+# part -1 
 
 "This Flask API allows you to store your course-specific data in a vector database and query it using AI. You can upload PDFs, images, and videos, extract meaningful information, and ask questions based on the stored data. This approach enables an AI-driven agent that provides contextual responses using a conversational retrieval system."
 
