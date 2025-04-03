@@ -25,9 +25,10 @@ Conversational Retrieval: Ask questions based on stored documents.
 
 │── /app
 
-│   ├── __init__.py 
-                              # Initializes Flask app
+│   ├── __init__.py          # Initializes Flask app
+
 │   ├── config.py            # API Key Configuration
+
 
 │   ├── routes.py            # Defines Flask API routes
 
@@ -40,3 +41,9 @@ Conversational Retrieval: Ask questions based on stored documents.
 │── requirements.txt         # Dependencies
 
 │── README.md                # Documentation
+
+
+![Screenshot 2025-04-02 162110](https://github.com/user-attachments/assets/f82d9086-dceb-49e8-aa95-07bf1e836765)
+
+![Screenshot 2025-04-02 162125](https://github.com/user-attachments/assets/cf786026-9229-4614-9c66-cde80485410c)
+
