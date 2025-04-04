@@ -8,21 +8,42 @@ from modules.image_processing import describe_image
 from modules.vectorstore import get_text_chunks, get_vectorstore
 from modules.chat import get_conversation_chain
 import PIL.Image
+import time
+
+
+
 os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 load_dotenv()
+
 st.set_page_config(page_title="Agentic AI Integration for LMS", page_icon="📄🎥🖼️")
 st.header("Agentic AI Integration for LMS 📄🎥🖼️")
 
+# Initialize session state for chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
 def handle_userinput(question):
-    response = st.session_state.conversation({"question": question})
-    st.session_state.chat_history = response['chat_history']
-    st.write(response)
+    if "conversation" in st.session_state:
+        response = st.session_state.conversation({"question": question})
+        bot_response = response.get("answer", "I'm not sure, please try again.")
+
+        # Append user message
+        st.session_state.messages.append({"role": "user", "content": question})
+        
+        # Append AI response
+        st.session_state.messages.append({"role": "assistant", "content": bot_response})
+
+        # Stream output dynamically
+        with st.chat_message("assistant"):
+            message_placeholder = st.empty()
+            full_response = ""
+
+            for word in bot_response.split():
+                full_response += word + " "
+                message_placeholder.markdown(full_response)
+                time.sleep(0.05)  # Simulating the streaming effect
 
 def main():
-    user_question = st.text_input("Ask a question:")
-    if user_question:
-        handle_userinput(user_question)
-
     with st.sidebar:
         st.subheader("Upload your files")
         pdf_docs = st.file_uploader("Upload PDFs", accept_multiple_files=True, type=["pdf"])
@@ -42,6 +63,7 @@ def main():
                     all_text += pdf_text
 
                 if video_file and video_processing_option:
+                    st.video(video_file)
                     video_output = process_video(video_file, video_processing_option)
                     all_text += video_output
 
@@ -56,6 +78,23 @@ def main():
                 text_chunks = get_text_chunks(all_text)
                 vectorstore = get_vectorstore(text_chunks)
                 st.session_state.conversation = get_conversation_chain(vectorstore)
+                st.success("Processing complete! You can now ask questions.")
+
+    # Chat Interface
+    st.subheader("Chat with AI")
+    
+    # Display chat history
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.write(message["content"])
+
+    # Get user input
+    user_question = st.chat_input("Ask a question...")
+    if user_question:
+        with st.chat_message("user"):
+            st.write(user_question)
+        
+        handle_userinput(user_question)
 
 if __name__ == "__main__":
     main()
